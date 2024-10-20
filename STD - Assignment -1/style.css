@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+img {
+  max-height: 100%;
+  max-width: 100%;
+  display: inline-block;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.resume-download {
+  display: flex;
+  font-size: 1.4rem;
+  gap: 1rem;
+  background: #85baff;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 0.2rem;
+}
+.resume-download svg {
+  filter: brightness(0) invert(1);
+  width: 2rem !important;
+  height: auto;
+}
+
+header .navbar-collapse {
+  justify-content: end;
+}
+
+header .navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+header .navbar-nav {
+  gap: 2.5rem;
+}
+header .navbar-nav a {
+  color: #fff;
+}
+
+.profile-links {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+.profile-links svg {
+  width: 2.5rem;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.introduction {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #85baff;
+}
+
+.about-self {
+  font-size: 1.4rem;
+  max-width: 80ch;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+section.portfolio {
+  margin-top: 5rem;
+}
+
+section .portfolio-item {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-inline: 1rem;
+}
+section .portfolio-item .carousel {
+  border-radius: 1rem;
+}
+section .portfolio-item .title {
+  color: #85baff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+section .portfolio-item .carousel-control-prev,
+section .portfolio-item .carousel-control-next {
+  filter: brightness(0) invert(1);
+}
+section .portfolio-item p {
+  font-size: 1.4rem;
+  color: #e6e6e6;
+  margin-top: 2rem;
+}
+section .portfolio-item ul li {
+  font-size: 1.4rem;
+  color: #e6e6e6;
+}
+section .portfolio-item .content {
+  padding-left: 2rem;
+}
+section .portfolio-item .content .badge {
+  background-color: #555555;
+  margin-inline: 0.5rem;
+}
+section .portfolio-item img {
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 100%;
+  background-size: cover;
+}
+section .portfolio-item ul {
+  list-style: disc;
+  margin-left: 2rem;
+}
+section .portfolio-item ul li {
+  padding-block: 0.5rem;
+}
+section .portfolio-item svg {
+  margin-left: 1rem;
+  width: 2rem;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.skills {
+  max-width: 40ch;
+}
+.skills > div {
+  margin-bottom: 3rem;
+}
+.skills h3 {
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+.skills .badge {
+  background-color: #555555;
+}
+.skills-container {
+  margin-top: 10rem;
+}
+.skills-container .eduction {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.skills-container .eduction h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #85baff;
+  margin-bottom: 0;
+}
+.skills-container .eduction p {
+  max-width: 30ch;
+  margin-block: 0.7rem;
+  font-size: 1.4rem;
+}
+.skills-container .eduction span {
+  font-size: 1.4rem;
+  color: #b3b3b3;
+}
+
+.contact-container {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+.contact-container h3 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* border: 1px solid #fff; */
+  /* padding: 2.5rem 12rem; */
+  /* border-radius: 1rem; */
+}
+.contact-container form button {
+  background-color: #85baff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.contact-container form input,
+.contact-container form textarea {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  border: 1px solid #85baff;
+}
+
+footer {
+  border-top: 1px solid #9b9b9b;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+footer .profile-links {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* 992px - LG */
+@media (max-width: 62em) {
+  .introduction {
+    margin-top: 3rem;
+  }
+}
+
+/* 768 - MD */
+@media (max-width: 48em) {
+  .introduction {
+    font-size: 3rem;
+    margin-top: 5rem;
+  }
+  .about-self {
+    max-width: 70ch;
+    margin-top: 0;
+  }
+  section .portfolio-item .content {
+    padding-inline: 1rem;
+    padding-top: 3rem;
+  }
+  section .portfolio-item p {
+    margin-top: 0.5rem;
+  }
+  /* section .portfolio-item img {
+    object-fit: cover;
+    height: 25rem;
+  } */
+  section.portfolio {
+    margin-top: 7rem;
+  }
+}
+
+/* SM - 576 */
+@media (max-width: 36em) {
+  .skills-container .eduction {
+    text-align: left;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+  .about-self {
+    max-width: 60ch;
+  }
+}
