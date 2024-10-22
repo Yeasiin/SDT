@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.search-container {
+  margin-top: 5rem;
+  width: 45rem;
+  margin-inline: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+.search-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #969696;
+}
+.search-container button {
+  border: 0;
+  padding-inline: 2rem;
+  border-radius: 0.4rem;
+  background-color: #9caeff;
+  color: #fff;
+}
+.preview {
+  display: flex;
+  justify-content: center;
+}
+
+.preview > div {
+  margin-top: 2rem;
+  padding: 2rem 2rem;
+  border-radius: 0.5rem;
+  background-color: #b8b8b860;
+  display: flex;
+  gap: 2rem;
+}
+.preview h3 {
+  max-width: 40ch;
+}
+.preview h4 {
+  margin-top: 1rem;
+}
+.preview ul {
+  list-style-type: none;
+}
+
+.preview img {
+  max-width: 22rem;
+  border-radius: 0.5rem;
+}
+
+.content {
+  width: 90%;
+  margin-inline: auto;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.content .card {
+  border-radius: 0.3rem;
+  background-color: #9caeff3f;
+  padding: 1rem;
+  width: 20rem;
+  min-height: 20rem;
+}
+.content .card img {
+  max-width: 100%;
+  border-radius: 0.3rem;
+}
+.content .card h3 {
+  font-weight: 600;
+}
+
+.content .error {
+  font-size: 1.6rem;
+  font-weight: 600;
+}

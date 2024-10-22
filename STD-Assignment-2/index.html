@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Your Meal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h3>Cart Your Meal</h3>
+            </div>
+
+            <ul>
+                <li>Home</li>
+                <li>Profile</li>
+                <li>Contact</li>
+            </ul>
+
+        </header>
+    </div>
+
+
+    <div id="modal" class="modal">
+        <div id="modal-content" class="modal-content">
+        </div>
+    </div>
+
+
+
+
+    <form id="form" class="search-container" action="">
+        <input placeholder="Find your food" type="text" name="search" id="">
+        <button>Search</button>
+    </form>
+
+    <div class="container content">
+        <div id="meals" class="meals">
+            <div class="loading">loading...</div>
+        </div>
+        <div>
+            <h3 id="item-count">Cart</h3>
+            <div id="selected-meal" class="selected-meal">
+                Cart Is Empty
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Copyright &copy; 2024| All right reserved
+    </footer>
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
