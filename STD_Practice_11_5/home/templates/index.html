@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block inHeader %}
+<title>Hello I'm Under the Water</title>
+{% endblock inHeader %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row">
+
+        {% for val in data %}
+        <div class="col-4 g-4">
+            <div class="card" style="width: 100%;">
+                <img src="{{val.strMealThumb}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{val.strMeal}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+{% endblock content %}

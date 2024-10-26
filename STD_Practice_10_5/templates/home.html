@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <a href="/nav">Go To Nav&rarr;</a>
+    <h2>Hello From Navigation</h2>
+
+    <h2>Filter</h2>
+
+    <p> print :{{data.name}} </p>
+    <p> upper :{{data.name | upper}} </p>
+    <p> length :{{data.name | length}} </p>
+    <p> capfirst :{{data.div | add:'5' }} </p>
+    <p> capfirst :{{data.name | addslashes }} </p>
+    <p> capfirst :{{data.name | capfirst }} </p>
+    <p> date time :{{data.date | date:"D m M Y"}} </p>
+    <p>dict sort {{data.arrDict | dictsort:"age"}}</p>
+    <p> divisibleby 3:{{data.div | divisibleby:'3' }} </p>
+    <p> divisibleby 4:{{data.div | divisibleby:'4' }} </p>
+    <p> escape :{{data.intro | escape }} </p>
+    <p> first :{{data.name | first}} </p>
+    <p> last :{{data.name | last}} </p>
+    <p> count :{{data.name | wordcount}} </p>
+    <p> title :{{data.intro | title}} </p>
+    <p> time :{{data.date | time:"H:i"}} </p>
+    <p> title :{{data.intro | slugify }} </p>
+    <p> list :{{data.arr }} </p>
+    <p> slice :{{data.arr | slice:":2" }} </p>
+    <p> random :{{data.arr | random }} </p>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.navigation-bar {
+  justify-content: flex-end;
+}
+
+.card-img-top {
+  max-height: 15rem;
+  object-fit: cover;
+}
