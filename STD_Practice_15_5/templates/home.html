@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <table class="table mt-4">
+                <thead>
+                  <tr style="text-align:center" >
+                    <th scope="col">Id </th>
+                    <th scope="col">Musician Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Album Rating</th>
+                    <th scope="col">Instrument Type</th>
+                    <th scope="col">Album Name</th>
+                    <th scope="col">Release</th>
+                    <th scope="col">Action</th>
+
+                  </tr>
+                </thead>
+                <tbody texta >
+                  {% for entry in data %}
+                  <tr style="text-align:center" >
+                    <td scope="row">{{ entry.id }}</td>
+                    <td><a href="{% url 'update_musician' entry.musician.id %}">
+                      {{entry.musician.f_name}} {{entry.musician.l_name}}
+                    </a> </td>
+                    <td>{{entry.musician.email}}</td>
+                    <td>{{entry.rating}}</td>
+                    <td>{{entry.musician.instrument}}</td>
+                    <td> {{entry.name}} </td>
+                    <td>{{entry.release | date:"d-M-Y"}}</td>
+                    <td>
+                        <a href="{% url 'update_album' entry.id %}" class="btn btn-primary py-1" >Edit</a>
+                        <a href="{% url 'delete_musician' entry.musician.id %}" class="btn btn-danger py-1">Delete</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
