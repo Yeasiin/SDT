@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <table class="table mt-4">
+        <thead>
+            <th  scope="col" >Id</th>
+            <th  scope="col" >Musician Name</th>
+            <th  scope="col" >Email</th>
+            <th  scope="col" >Album Rating</th>
+            <th  scope="col" >Instrument Type</th>
+            <th  scope="col" >Album Name</th>
+            <th  scope="col" >Release Date</th>
+            {% if user.is_authenticated %}
+                <th  scope="col" >Actions</th>
+            {% endif %}
+        </thead>
+    
+        <tbody>
+
+            {% for album in albums %}
+            <tr>
+                <th scope="row"> {{album.id}}</th>
+                <td>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'update_musician' album.musician.id %}">
+                        {{album.musician.first_name}}  {{album.musician.last_name}}
+                    </a>
+                    {% else %}
+                        {{album.musician.first_name}}  {{album.musician.last_name}}
+                    {% endif %}
+                </td>
+                <td> {{album.musician.email}} </td>
+                <td>{{album.rating}}</td>
+                <td>{{album.musician.instrument}}</td>
+                <td>{{album.name}}</td>
+                <td>{{album.release}}</td>
+                {% if user.is_authenticated %}
+                <td>
+                    <button>
+                            <a href="{% url "update_album" album.id %}">
+                            Edit
+                        </a>
+                        </button>
+                    <button>
+                        <a href="{% url 'delete_album' album.id %}">
+                            Delete
+                        </a>
+                    </button>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+
+
+
+            
+        </tbody>
+    
+    </table>
+
+   
+
+
+
+</div>
+
+
+
+
+
+{% endblock content %}
