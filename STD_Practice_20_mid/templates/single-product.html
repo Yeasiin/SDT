@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-5">
+            <img style="max-width:100%" src="{{MEDIA_URL}}{{data.image}}" alt="">
+        </div>
+        <div class="col-6 offset-1">
+            <h3>{{data.name}}</h3>
+            <h4> Price:  {{data.price}}</h4>
+            <h5>
+                Quantity:
+                {{data.quantity}}</h5>
+            <p>
+                <strong>Description:</strong>
+                {{data.description}}</p>
+            <h5 class="" >
+                Brand: 
+                <span class="badge bg-warning text-dark">
+                    {{data.brand.name}}
+                </span>
+            </h5>
+            <br>
+
+            {% if data.quantity > 0 %}
+            {% if user.is_authenticated %}
+                <button>
+                    <a href="{% url "single-product" data.id %}?order={{data.id}}">
+                        Buy Now
+                    </a>
+                </button>
+                {% endif %}
+            {% else %}
+                <button disabled >Stock Out</button>
+            {% endif %}
+            
+        </div>
+    </div>
+
+    {% if comments.count > 0  %}
+    <div class="row">
+
+        <div class="col-6 offset-3 mt-5">
+            <h3>Comments</h3>
+            {% for comment in comments %}
+                <div style="margin-bottom: 1rem" >
+                    <span style="font-size: .7rem; margin-bottom: -0.2rem;display:block;" >{{comment.created_at}}</span>
+                    <p class="mb-2" >
+                        <span class="mb-0 fw-bold" >{{comment.name}} - </span>
+                        <span>{{comment.comment}}</span>
+                    </p>
+                 
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col-6 offset-3 mb-5 mt-4">
+            <h3>Add Comment</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{comment_form | crispy}}
+                <button>Comment</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+{% endblock content %}

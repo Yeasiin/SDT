@@ -10,7 +10,6 @@ from user.forms import UserRegistrationForm
 
 def user_logout(request):
     logout(request)
-    print("hello -arf")
     messages.success(request,"Logged Out Successfully")
     return redirect("home")
 

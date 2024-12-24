@@ -1,0 +1,26 @@
+<style>
+.sidebar{
+    margin-top: 3rem;
+}
+.sidebar a{
+    padding-block: .3rem;
+    font-size: 1.2rem;
+    display:block
+
+}
+</style>
+
+<div class="sidebar" >
+    <div>
+        <a href="{% url "orders" %}">Order</a>
+    </div>
+    <div>
+        <a href="{% url 'car-create' %}">Add Car Model</a>
+    </div>
+    <div>
+        <a href="{% url "create-brand" %}">Add Car Brand</a>
+    </div>
+    <div>
+        <a  href="{% url "profile-update" %}">Update User</a>
+    </div>
+</div>

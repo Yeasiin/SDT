@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-3">
+            {% include "profile_navigation.html" %}
+        </div>
+
+        <div class="col-8">
+            <h2>Orders List {{ items | length }} </h2>
+            {% if items.count  > 0 %}
+                <div style="background:#f0f0f0a1; border-radius: .4rem; padding-inline: 1rem; margin-top:2rem" >
+                    <div class="row">
+                {% for item in items %}
+                <div class="col-3">
+                    <div class="card mb-3" >
+                        <img src="{{MEDIA_URL}}{{ item.car.image }}" style="height:100px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{item.car.name}}</h5>
+                          <h6 class="card-text">
+                            {{item.car.price}}৳
+                          </h6>
+                        <p class="card-text">
+                            <span class="badge bg-warning text-dark" >
+                                {{item.car.brand.name}}
+                            </span>
+                        </p>
+                          
+                        </div>
+                      </div>
+                   </div> 
+                
+                {% endfor %}
+                </div>
+            </div>
+            
+
+
+
+            {% else %}
+            <h5>No Order yet</h5>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
