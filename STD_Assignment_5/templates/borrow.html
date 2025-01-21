@@ -1,0 +1,121 @@
+{% extends "base.html" %} {% load tailwind_filters %} {% block content %}
+
+<div class="max-w-screen-xl mx-auto">
+  <div class="grid grid-cols-12">
+    <div class="col-span-10 col-start-2">
+      <div class="border px-4 py-4 rounded mb-2">
+        <dl class="flex gap-2 items-center">
+          <dt class="font-semibold text-gray-900 dark:text-white">
+            First Name
+          </dt>
+          <dd
+            class="text-gray-500 dark:text-gray-400 border py-1 px-3"
+            style="min-width: 150px"
+          >
+            {{user.first_name}}
+          </dd>
+        </dl>
+
+        <dl class="flex gap-2 items-center mt-3">
+          <dt class="font-semibold text-gray-900 dark:text-white">Last Name</dt>
+          <dd
+            class="text-gray-500 dark:text-gray-400 border py-1 px-3"
+            style="min-width: 150px"
+          >
+            {{user.last_name}}
+          </dd>
+        </dl>
+        <dl class="flex gap-2 items-center mt-3">
+          <dt class="font-semibold text-gray-900 dark:text-white">
+            Email Address
+          </dt>
+          <dd
+            class="text-gray-500 dark:text-gray-400 border py-1 px-3"
+            style="min-width: 150px"
+          >
+            {{user.email}}
+          </dd>
+        </dl>
+        <a class="underline text-blue-600" href="{% url 'profile-update' %}"
+          >Update User</a
+        >
+      </div>
+
+      <h2>Borrowed Book List {{ items | length }}</h2>
+      {% if items.count > 0 %}
+      <div
+        style="
+          background: #f0f0f0a1;
+          border-radius: 0.4rem;
+          padding-inline: 1rem;
+          margin-top: 2rem;
+        "
+      >
+        <div class="relative overflow-x-auto">
+          <table
+            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+          >
+            <thead
+              class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+            >
+              <tr>
+                <th scope="col" class="px-6 py-3">Id</th>
+                <th scope="col" class="px-6 py-3">Name</th>
+                <th scope="col" class="px-6 py-3">Amount</th>
+                <th scope="col" class="px-6 py-3">After Balance</th>
+                <th scope="col" class="px-6 py-3">Time</th>
+                <th scope="col" class="px-6 py-3">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items %}
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  {{item.id}}
+                </th>
+                <td class="px-6 py-4">{{item.book.title}}</td>
+                <td class="px-6 py-4">{{item.book.price}}৳</td>
+                <td class="px-6 py-4">{{item.balance_after_record}}</td>
+                <td class="px-6 py-4">{{item.created_at}}</td>
+                <td class="px-6 py-4">
+                  {% if not item.is_returned %}
+                  <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{item.id}}" name="trxid" />
+                    <button
+                      type="submit"
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 py-2"
+                    >
+                      Return
+                    </button>
+                  </form>
+                  {% else %}
+                  <div class="cursor-not-allowed">Returned</div>
+                  {%endif%}
+                </td>
+              </tr>
+
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {% else %}
+      <h5>No Book Borrowed yet</h5>
+      {% endif %}
+
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

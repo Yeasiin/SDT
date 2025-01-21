@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<style></style>
+
+<div class="max-w-screen-xl mx-auto">
+  <h4 class="mb-5 mt-5">Total Book Found: {{items|length}}</h4>
+
+  <div class="grid grid-cols-12">
+    <div class="col-span-2">
+      <div class="mb-4">
+        <span class="font-semibold text-lg">Book Genre:👇</span>
+        {% for genre in genres %}
+        <div>
+          <a
+            class="inline-block mr-4"
+            href="{% url 'home' %}?query={{genre.name}}"
+          >
+            {{genre.name}}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-span-10">
+      <div class="grid grid-cols-12 gap-3">
+        {% for item in items %}
+        <div
+          class="col-span-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <div class="max-h-12">
+            <img
+              style="height: 180px"
+              class="rounded-t-lg object-cover w-full max-h-16"
+              src="{{MEDIA_URL}}{{item.image}}"
+              alt=""
+            />
+          </div>
+
+          <div class="p-3">
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              {{item.title}}
+            </h5>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              {{item.price}}৳
+            </h5>
+
+            <p class="mb-3 mt-2">
+              {% for genre in item.genres.all %}
+
+              <span
+                class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400 px-1"
+                >{{genre}}</span
+              >
+
+              {% endfor %}
+            </p>
+
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {{item.description}}
+            </p>
+            <a
+              style="white-space: nowrap"
+              href="{% url 'single-product' item.id %}"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Read more
+            </a>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
