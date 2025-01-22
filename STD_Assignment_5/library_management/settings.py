@@ -34,6 +34,13 @@ SECRET_KEY = 'django-insecure-ti6sd&lv5y(5#(+cz5^5b#64)a-5tk^1$&(n#h766ab6$ton-q
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = ['https://phitron-v1.onrender.com/']
+
 # This production code might break development mode, so we check whether we're in DEBUG mode
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
